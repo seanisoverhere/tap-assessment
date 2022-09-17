@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const QueryContainer = () => {
   return (
-    <motion.div className='query-container' whileHover={{
+    <motion.div className='query-container relative' whileHover={{
       scale: 1.02,
       transition: { duration: 0.2 },
     }}>
@@ -12,11 +12,15 @@ const QueryContainer = () => {
           type="text"
           name='url'
           className="input-form peer"
+          autoComplete='off'
         />
         <label htmlFor="url" className="input-label">
           Enter your URL
         </label>
-      </div></motion.div>
+
+      </div>
+      <button type='submit' className='button'>Shorten</button>
+    </motion.div>
   )
 }
 
