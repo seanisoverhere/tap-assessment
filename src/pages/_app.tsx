@@ -1,10 +1,12 @@
 import '/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { ThemeProvider } from "next-themes";
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ThemeProvider attribute="class">
       <Head>
         <title>URL Shortener</title>
         <meta charSet="UTF-8" />
@@ -13,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   )
 
 }

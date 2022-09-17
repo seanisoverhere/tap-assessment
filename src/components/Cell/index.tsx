@@ -35,7 +35,7 @@ const Cell = ({ mouseX, mouseY }: CellProps) => {
 
   return (
     <div className="cell-container" ref={ref}>
-      <motion.div style={{ rotate: direction }}>👉🏻</motion.div>
+      <motion.div style={{ rotate: direction }} className="text-6xl">👉🏻</motion.div>
     </div>)
 }
 
