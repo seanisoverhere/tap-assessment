@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
+import Grid from '@/components/Grid';
 
 const Home: NextPage = () => {
-  return <div className="bg-blue-300 h-screen">hello</div>;
+  return <Grid />;
 };
 
 export default Home;
