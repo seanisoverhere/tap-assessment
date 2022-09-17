@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-amber-50 text-gray-700 dark:bg-black dark:text-gray-100;
+    @apply transition duration-200;
+    @apply min-h-screen;
+  }
+  
+  ::selection {
+    @apply text-white bg-indigo-500;
+  }
+}
+
+@layer components {
+  .cell-container {
+    @apply border-dashed border border-sky-400/50 flex justify-center items-center select-none text-white/20;
+  }
+
+  .grid-container {
+    @apply absolute top-0 left-0 w-screen h-screen overflow-hidden grid
+  }
+}
