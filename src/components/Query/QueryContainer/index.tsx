@@ -6,7 +6,17 @@ const QueryContainer = () => {
     <motion.div className='query-container' whileHover={{
       scale: 1.02,
       transition: { duration: 0.2 },
-    }}>Query Container</motion.div>
+    }}>
+      <div className="relative z-0 w-full group">
+        <input
+          type="text"
+          name='url'
+          className="input-form peer"
+        />
+        <label htmlFor="url" className="input-label">
+          Enter your URL
+        </label>
+      </div></motion.div>
   )
 }
 
