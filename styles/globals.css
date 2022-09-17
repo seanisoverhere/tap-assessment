@@ -16,7 +16,7 @@
 
 @layer components {
   .cell-container {
-    @apply border-dashed border border-sky-400 flex justify-center items-center select-none;
+    @apply border-dashed border border-sky-400/50 flex justify-center items-center select-none text-white/20;
   }
 
   .grid-container {
