@@ -8,7 +8,7 @@
     @apply transition-all duration-200;
     @apply min-h-screen;
   }
-  
+
   ::selection {
     @apply text-white bg-indigo-500;
   }
@@ -20,6 +20,10 @@
   }
 
   .grid-container {
-    @apply absolute top-0 left-0 w-screen h-screen overflow-hidden grid
+    @apply absolute z-0 top-0 left-0 w-screen h-screen overflow-hidden grid;
+  }
+
+  .query-container {
+    @apply h-1/2 w-1/2 z-50 bg-white shadow-lg text-gray-700;
   }
 }
