@@ -2,7 +2,11 @@ import type { NextPage } from "next";
 import Grid from '@/components/Grid';
 
 const Home: NextPage = () => {
-  return <Grid />;
+  return (
+    <div>
+      hello
+      <Grid />
+    </div>)
 };
 
 export default Home;
