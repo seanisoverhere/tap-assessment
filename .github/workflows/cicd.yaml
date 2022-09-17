@@ -61,7 +61,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-    needs: [lint-format, unit-test, install-cache]
+    needs: [unit-test, install-cache]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
