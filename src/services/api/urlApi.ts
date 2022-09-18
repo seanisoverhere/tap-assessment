@@ -6,7 +6,7 @@ const urlApi = apiSauce.create({
 })
 
 // READ
-const getUrl = (shortUrl: string) => urlApi.get(`/${shortUrl}`)
+const getUrl = (shortUrl: string) => urlApi.get(`/url?url=${shortUrl}`)
 
 // CREATE
 const generateUrl = (data: IGenerateUrl) => urlApi.post('/url', data)

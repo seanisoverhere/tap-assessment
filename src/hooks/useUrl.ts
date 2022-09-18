@@ -5,7 +5,6 @@ import { IGenerateUrl } from "@/types/url";
 
 const useUrl = () => {
   const [generatedUrl, setGeneratedUrl] = useState<string>("");
-  const [revertedUrl, setRevertedUrl] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
@@ -13,7 +12,7 @@ const useUrl = () => {
     setLoading(true);
     const response: ApiResponse<any> = await urlApi.getUrl(shortUrl);
     if (response.ok) {
-      setRevertedUrl(response.data.url);
+      window.location = response.data.data
     } else {
       setError(true);
     }
@@ -35,7 +34,6 @@ const useUrl = () => {
 
   return {
     generatedUrl,
-    revertedUrl,
     loading,
     error,
     getUrl,

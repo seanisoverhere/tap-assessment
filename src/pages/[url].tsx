@@ -1,14 +1,20 @@
 import type { NextPage } from 'next';
-import React from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import useUrl from '@/hooks/useUrl'
 
 const UrlPage: NextPage = () => {
   const router = useRouter()
   const { url } = router.query
+  const { getUrl } = useUrl()
 
-  return (
-    <div>{url}</div>
-  )
+  useEffect(() => {
+    if (router.isReady) {
+      getUrl(url as string)
+    }
+  }, [router.isReady])
+
+  return null
 }
 
 export default UrlPage
