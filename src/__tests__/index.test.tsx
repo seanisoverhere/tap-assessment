@@ -6,6 +6,6 @@ describe('Home', () => {
   it('renders a heading', () => {
     render(<Home />);
 
-    expect(screen.getByText('URL Shortening Service')).toBeInTheDocument();
+    expect(screen.getByText('URL Shortener')).toBeInTheDocument();
   });
 });
