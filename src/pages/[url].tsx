@@ -12,6 +12,7 @@ const UrlPage: NextPage = () => {
     if (router.isReady) {
       getUrl(url as string)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady])
 
   return null

@@ -19,7 +19,7 @@ const Cell = ({ mouseX, mouseY }: CellProps) => {
     const y = rect.top + CELL_SIZE / 2
 
     setPosition([x, y])
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref.current])
 
   const direction = useTransform<number, number>(
