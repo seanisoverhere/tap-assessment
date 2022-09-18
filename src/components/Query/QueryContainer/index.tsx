@@ -13,7 +13,7 @@ const QueryContainer = () => {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>();
   const onSubmit: SubmitHandler<FormValues> = (data) =>
-    new Promise((resolve) => {
+    new Promise<void>((resolve) => {
       setTimeout(() => {
         resolve();
         console.log(data);
