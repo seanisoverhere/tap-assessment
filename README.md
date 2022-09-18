@@ -17,6 +17,7 @@ Hi guys! I'm submitting one project for both teams since the requirements are th
 3. use-debounce (for debouncing the resizing of grids based on innerWidth/innerHeight)
 
 ###### Few things to highlight: 
+- Included a light/dark mode
 - Wrote unit tests to check if component renders and input field validation is throwing error
 - Decided to go serverless so data is persisted in a relational database in PlanetScale (DB as a service)
 - DB stores **autoincremented id**, **originalUrl**, **convertedUrl**, and **expireAt**
