@@ -12,7 +12,7 @@ const useUrl = () => {
     setLoading(true);
     const response: ApiResponse<any> = await urlApi.getUrl(shortUrl);
     if (response.ok) {
-      window.location = response.data.data
+      window.location = response.data.data;
     } else {
       setError(true);
     }
@@ -23,13 +23,11 @@ const useUrl = () => {
     setLoading(true);
     const response: ApiResponse<any> = await urlApi.generateUrl(data);
     if (response.ok) {
-      setGeneratedUrl(response.data.url);
+      setGeneratedUrl(response.data.data);
     } else {
       setError(true);
     }
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    setLoading(false);
   };
 
   return {
