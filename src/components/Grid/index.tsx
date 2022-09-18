@@ -28,6 +28,7 @@ const Grid = () => {
     return () => {
       window.removeEventListener('resize', calculateGrid)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useMemo(() => {
@@ -45,6 +46,7 @@ const Grid = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
