@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## URL Shortening Service (For Govtech D3 & ENP)
 
-## Getting Started
+Hi guys! I'm submitting one project for both teams since the requirements are the same so here's my URL shortening service :-)
 
-First, run the development server:
+##### The web app has been deployed at the following link: https://tap-assessment.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
+###### I have used the following stack for my development:
+1. NextJS (FE and API routes)
+2. TailwindCSS 
+3. Prisma (ORM)
+4. PlanetScale (Database as a service)
+5. Vercel (For deployment)
+
+###### Libraries used for my FE development:
+1. apisauce (http client)
+2. framer-motion (for animation where finger is following your cursor)
+3. use-debounce (for debouncing the resizing of grids based on innerWidth/innerHeight)
+
+###### Few things to highlight: 
+- Wrote unit tests to check if component renders and input field validation is throwing error
+- Decided to go serverless so data is persisted in a relational database in PlanetScale (DB as a service)
+- DB stores **autoincremented id**, **originalUrl**, **convertedUrl**, and **expireAt**
+- Wrote a CI/CD pipeline script using Github Action to deploy to prod when pushed to main
+- 'Borrowed' a UUID generator from stackoverflow as I originally used MD5 hashing but realised that it's not unique if the value is the same so here's the said algo:
+
+```js
+const generateUUID = () => {
+  // Public Domain/MIT
+  var d = new Date().getTime();
+  var d2 =
+    (typeof performance !== "undefined" &&
+      performance.now &&
+      performance.now() * 1000) ||
+    0;
+  return "xxxx-4xxx".replace(/[xy]/g, function (c) {
+    var r = Math.random() * 16;
+    if (d > 0) {
+      r = (d + r) % 16 | 0;
+      d = Math.floor(d / 16);
+    } else {
+      r = (d2 + r) % 16 | 0;
+      d2 = Math.floor(d2 / 16);
+    }
+    return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+  });
+};
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##### What could be better?
+Something I could think of at the top of my head is to create a middleware to redirect the user to the page immediately if a uuid is detected in my url. Currently, there's a few seconds buffer before the app redirects you to the correct page.
