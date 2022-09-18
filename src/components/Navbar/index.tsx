@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="w-full justify-between flex items-center">
           <div className="flex-shrink-0">
             <div className="tracking-wider font-semibold text-xl cursor-pointer">
-              URL Shortening Service
+              URL Shortener
             </div>
           </div>
           <div className="ml-10 flex items-end space-x-8 text-sm">
