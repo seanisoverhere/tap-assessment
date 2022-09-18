@@ -24,7 +24,7 @@
   }
 
   .header-text {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide z-50 text-center;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide z-50 text-center;
   }
 
   .query-container {
