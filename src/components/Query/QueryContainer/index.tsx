@@ -19,6 +19,8 @@ const QueryContainer = () => {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
+    setHasCopiedText(false)
+    
     try {
       const dataToPost = {
         url: data.url,
