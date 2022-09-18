@@ -1,6 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from '@/lib/prisma'
 
+const md5 = require('blueimp-md5')
+
 type Data = {
   data?: string;
   message: string;
@@ -22,7 +24,7 @@ export default async function handler(
 
 const createUrl = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const { url } = req.body;
-  let convertedUrl = "tesetset";
+  const convertedUrl = md5(url)
 
   try {
     await prisma.url.create({
