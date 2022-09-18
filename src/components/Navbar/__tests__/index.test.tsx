@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import Home from "@/pages/index";
+import Navbar from "..";
 import "@testing-library/jest-dom";
 
-describe('Home', () => {
-  it('renders a heading', () => {
-    render(<Home />);
+describe('Component: Navbar', () => {
+  it('component renders', () => {
+    render(<Navbar />);
 
     expect(screen.getByText('URL Shortener')).toBeInTheDocument();
   });
