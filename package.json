@@ -16,11 +16,15 @@
     ]
   },
   "dependencies": {
+    "@prisma/client": "^4.3.1",
+    "apisauce": "^2.1.6",
     "autoprefixer": "^10.4.11",
+    "dotenv": "^16.0.2",
     "framer-motion": "^7.3.5",
     "next": "12.3.0",
     "next-themes": "^0.2.1",
     "postcss": "^8.4.16",
+    "prisma": "^4.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.35.0",
