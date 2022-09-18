@@ -20,7 +20,7 @@ const QueryContainer = () => {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     setHasCopiedText(false)
-    
+
     try {
       const dataToPost = {
         url: data.url,
@@ -64,7 +64,7 @@ const QueryContainer = () => {
             autoComplete="off"
             {...register("url", { required: true, validate: isValidUrl })}
           />
-          <div className="error">
+          <div className="error" data-testid='error'>
             {errors.url?.type === "validate" && "Please enter a valid URL"}
             {errors.url?.type === "required" && "Please enter something :("}
           </div>
