@@ -28,8 +28,6 @@ export default async function handler(
 const getUrl = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const { url } = req.query;
 
-  console.log(url)
-
   try {
     const data = await prisma.url.findFirst({
       where: {
