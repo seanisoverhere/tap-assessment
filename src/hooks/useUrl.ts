@@ -1,6 +1,7 @@
 import { useState } from "react";
 import urlApi from "@/services/api/urlApi";
 import { ApiResponse } from "apisauce";
+import { IGenerateUrl } from "@/types/url";
 
 const useUrl = () => {
   const [generatedUrl, setGeneratedUrl] = useState<string>("");
@@ -19,17 +20,17 @@ const useUrl = () => {
     setLoading(false);
   };
 
-  const generateUrl = async (originalUrl: string) => {
+  const generateUrl = async (data: IGenerateUrl) => {
     setLoading(true);
-    const response: ApiResponse<any> = await urlApi.generateUrl({
-      originalUrl,
-    });
+    const response: ApiResponse<any> = await urlApi.generateUrl(data);
     if (response.ok) {
       setGeneratedUrl(response.data.url);
     } else {
       setError(true);
     }
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
 
   return {

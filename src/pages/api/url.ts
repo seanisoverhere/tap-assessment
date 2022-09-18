@@ -1,13 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from '@/lib/prisma'
 
 type Data = {
-  data?: string
+  data?: string;
   message: string;
   success: boolean;
 };
-
-const prisma = new PrismaClient();
 
 export default async function handler(
   req: NextApiRequest,
@@ -23,24 +21,23 @@ export default async function handler(
 }
 
 const createUrl = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const body = req.body;
+  const { url } = req.body;
+  let convertedUrl = "tesetset";
 
-  let convertedUrl = 'tesetset'
   try {
-    const newEntry = await prisma.url.create({
+    await prisma.url.create({
       data: {
-        originalUrl: body.shortUrl,
+        originalUrl: url,
         convertedUrl,
         expireAt: new Date(Date.now() + 86400000),
       },
     });
-    return res
-      .status(200)
-      .json({
-        data: convertedUrl,
-        message: "Successfully created URL",
-        success: true,
-      });
+
+    return res.status(200).json({
+      data: convertedUrl,
+      message: "Successfully created URL",
+      success: true,
+    });
   } catch (error) {
     console.error(error);
     return res
