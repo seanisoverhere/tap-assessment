@@ -9,6 +9,7 @@ const generateUUID = () => {
       performance.now &&
       performance.now() * 1000) ||
     0;
+  // 16^7 / 2^28
   return "xxxx-4xxx".replace(/[xy]/g, function (c) {
     var r = Math.random() * 16;
     if (d > 0) {
@@ -74,8 +75,9 @@ const getUrl = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 };
 
 const createUrl = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const { url } = req.body;
-  const convertedUrl = generateUUID();
+  const { url, alias } = req.body;
+
+  const convertedUrl = `${alias}_${generateUUID()}`;
 
   try {
     await prisma.url.create({

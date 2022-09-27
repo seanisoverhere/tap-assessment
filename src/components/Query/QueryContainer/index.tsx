@@ -5,6 +5,7 @@ import useUrl from '@/hooks/useUrl'
 
 type FormValues = {
   url: string;
+  alias: string
 };
 
 const QueryContainer = () => {
@@ -24,6 +25,7 @@ const QueryContainer = () => {
     try {
       const dataToPost = {
         url: data.url,
+        alias: data.alias
       };
       generateUrl(dataToPost)
     } catch (err) {
@@ -70,6 +72,20 @@ const QueryContainer = () => {
           </div>
           <label htmlFor="url" className="input-label">
             Enter your URL
+          </label>
+        </div>
+        <div className="relative z-0 w-full group mt-6">
+          <input
+            type="text"
+            className="input-form peer"
+            autoComplete="off"
+            {...register("alias", { required: true })}
+          />
+          <div className="error" data-testid='error'>
+            {errors.alias?.type === "required" && "Please enter something :("}
+          </div>
+          <label htmlFor="alias" className="input-label">
+            Alias
           </label>
         </div>
         {!loading && generatedUrl &&
